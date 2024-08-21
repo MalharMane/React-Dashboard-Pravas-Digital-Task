@@ -17,20 +17,19 @@ This is a React project that implements a dashboard featuring multiple different
 
 ## Project Structure
 
+## Project Structure
+
+
 /src
 ├── components
-
-│ ├── BarChart.js
-
-│ ├── LineChart.js
-
-│ ├── PieChart.js
-
-│ └── Dashboard.js
-
+│   ├── BarChart.js
+│   ├── LineChart.js
+│   ├── PieChart.js
+│   └── Dashboard.js
 ├── App.js
 ├── index.js
 └── styles.css
+
 
 
 - **components**: Contains reusable components for different chart types and the main dashboard.
