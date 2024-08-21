@@ -28,9 +28,6 @@ This is a React project that implements a dashboard featuring multiple different
 └── styles.css
 
 
-## Project Structure
-
-```bash
 /src
 ├── components
 │   ├── BarChart.js
@@ -40,7 +37,6 @@ This is a React project that implements a dashboard featuring multiple different
 ├── App.js
 ├── index.js
 └── styles.css
-
 
 
 
