@@ -5,13 +5,13 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const BarChart = () => {
+const BarChart = ({ dashboardData }) => {
   const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: dashboardData.map((_, index) => `Data ${index + 1}`),
     datasets: [
       {
-        label: 'Sales 2024 (in USD)',
-        data: [3000, 2000, 4000, 5000, 6000, 7000, 8000],
+        label: 'Values',
+        data: dashboardData,
         backgroundColor: 'rgba(75, 192, 192, 0.6)',
         borderColor: 'rgba(75, 192, 192, 1)',
         borderWidth: 1,
@@ -27,25 +27,19 @@ const BarChart = () => {
       },
       title: {
         display: true,
-        text: 'Monthly Sales Data',
+        text: 'Dashboard Data Chart',
       },
     },
-
-
     maintainAspectRatio: false,
     animation: {
       duration: 300, // Animation speed in milliseconds (faster)
     },
-
-
-
-    maintainAspectRatio: false, // This allows the chart to resize based on the container
   };
 
   return (
     <Card style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', border: '1px solid #e0e0e0', borderRadius: '8px', height: '450px' }}>
       <Card.Body>
-        <Card.Title style={{ fontSize: '1.25rem', color: '#343a40', marginBottom: '20px' }}>Sales Over Time</Card.Title>
+        <Card.Title style={{ fontSize: '1.25rem', color: '#343a40', marginBottom: '20px' }}>Dashboard Data</Card.Title>
         <div style={{ height: '350px' }}>
           <Bar data={data} options={options} height={300} /> {/* Adjust height here */}
         </div>

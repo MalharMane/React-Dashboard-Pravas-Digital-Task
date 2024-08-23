@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import BarChart from './charts/BarChart';
 
 const Dashboard = () => {
   const [inputValue, setInputValue] = useState('');
@@ -113,6 +114,11 @@ const Dashboard = () => {
             </tbody>
           </table>
         </div>
+      </div>
+
+      {/* Bar Chart Section */}
+      <div className="barchart-section p-3">
+        <BarChart dashboardData={data} />
       </div>
     </div>
   );
