@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 
 const Dashboard = () => {
@@ -60,6 +58,12 @@ const Dashboard = () => {
     setData([]);
   };
 
+  const handleTransferToPage2 = () => {
+    const newPage2Data = [...page2Data, ...data]; // Append data to the existing Page 2 data
+    setPage2Data(newPage2Data); // Update Page 2 data
+    setData([]); // Clear the Dashboard table
+  };
+
   return (
     <div className="dashboard d-flex">
       {/* Input Section */}
@@ -82,6 +86,9 @@ const Dashboard = () => {
           </button>
           <button onClick={handleClearAllData} className="btn btn-danger">
             Clear All Data
+          </button>
+          <button onClick={handleTransferToPage2} className="btn btn-success mt-3">
+            Transfer to Page 2
           </button>
         </div>
       </div>
@@ -112,5 +119,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-
