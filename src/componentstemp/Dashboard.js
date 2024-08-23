@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect } from 'react';
 
 const Dashboard = () => {
@@ -6,10 +8,18 @@ const Dashboard = () => {
     const savedData = localStorage.getItem('tableData');
     return savedData ? JSON.parse(savedData) : [];
   });
+  const [page2Data, setPage2Data] = useState(() => {
+    const savedPage2Data = localStorage.getItem('page2TableData');
+    return savedPage2Data ? JSON.parse(savedPage2Data) : [];
+  });
 
   useEffect(() => {
     localStorage.setItem('tableData', JSON.stringify(data));
   }, [data]);
+
+  useEffect(() => {
+    localStorage.setItem('page2TableData', JSON.stringify(page2Data));
+  }, [page2Data]);
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -22,7 +32,13 @@ const Dashboard = () => {
 
   const handleAddData = () => {
     if (inputValue !== '') {
-      setData([...data, inputValue]);
+      if (data.length < 10) {
+        setData([...data, inputValue]);
+      } else {
+        const [firstValue, ...restData] = data;
+        setPage2Data([...page2Data, firstValue]);
+        setData([...restData, inputValue]);
+      }
       setInputValue('');
     }
   };
@@ -42,51 +58,6 @@ const Dashboard = () => {
 
   const handleClearAllData = () => {
     setData([]);
-  };
-
-  const renderTables = () => {
-    if (data.length === 0) {
-      return (
-        <table className="table table-bordered mt-3">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td colSpan="2" className="text-center">
-                No data available
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      );
-    }
-
-    const tables = [];
-    for (let i = 0; i < Math.ceil(data.length / 10); i++) {
-      tables.push(
-        <table className="table table-bordered mt-3" key={i}>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Value</th>
-            </tr>
-          </thead>
-          <tbody>
-            {data.slice(i * 10, i * 10 + 10).map((value, index) => (
-              <tr key={index}>
-                <td>{i * 10 + index + 1}</td>
-                <td>{value}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      );
-    }
-    return tables;
   };
 
   return (
@@ -116,11 +87,30 @@ const Dashboard = () => {
       </div>
 
       {/* Table Section */}
-      <div className="table-section p-3 d-flex flex-wrap">
-        {renderTables()}
+      <div className="table-section p-3">
+        <div className="table-container">
+          <table className="table table-bordered mt-3">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Array.from({ length: 10 }, (_, index) => (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{data[index] || ''}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
 };
 
 export default Dashboard;
+
+
