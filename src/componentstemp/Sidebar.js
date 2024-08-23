@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Nav, } from 'react-bootstrap';
+import { Nav } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import './Sidebar.css'; 
 
@@ -8,18 +8,21 @@ function Sidebar() {
 
   useEffect(() => {
     const handleKeyDown = (event) => {
-      switch (event.key) {
-        case '1':
-          navigate('/');
-          break;
-        case '2':
-          navigate('/page1');
-          break;
-        case '3':
-          navigate('/page2');
-          break;
-        default:
-          break;
+      // Check if the 'Alt' key is pressed
+      if (event.altKey) {
+        switch (event.key) {
+          case '1':
+            navigate('/');
+            break;
+          case '2':
+            navigate('/page1');
+            break;
+          case '3':
+            navigate('/page2');
+            break;
+          default:
+            break;
+        }
       }
     };
 
@@ -34,13 +37,13 @@ function Sidebar() {
       <h3 className="sidebar-title">Dashboard</h3>
       <Nav className="flex-column sidebar-nav">
         <Nav.Link as={Link} to="/" className="sidebar-link">
-          <i className="bi bi-house-fill"></i> Dashboard
+          <i className="bi bi-house-fill"></i> Dashboard alt+1
         </Nav.Link>
         <Nav.Link as={Link} to="/page1" className="sidebar-link">
-          <i className="bi bi-file-earmark-text"></i> Page 1
+          <i className="bi bi-file-earmark-text"></i> Page 1 alt+2
         </Nav.Link>
         <Nav.Link as={Link} to="/page2" className="sidebar-link">
-          <i className="bi bi-gear-fill"></i> Page 2
+          <i className="bi bi-gear-fill"></i> Page 2 Alt+3
         </Nav.Link>
       </Nav>
     </div>
@@ -48,6 +51,3 @@ function Sidebar() {
 }
 
 export default Sidebar;
-
-
-

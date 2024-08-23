@@ -10,7 +10,7 @@ const PieChart = () => {
     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
     datasets: [
       {
-        label: '# of Votes',
+        label: 'Votes',
         data: [12, 19, 3, 5, 2, 3],
         backgroundColor: [
           'rgba(255, 99, 132, 0.6)',
@@ -41,16 +41,26 @@ const PieChart = () => {
       },
       title: {
         display: true,
-        text: 'Distribution of Votes',
+        text: 'Votes Distribution',
       },
     },
+
+
+    maintainAspectRatio: false,
+    animation: {
+      duration: 500, // Animation speed in milliseconds (faster)
+    },
+
+    maintainAspectRatio: false, // Allows the chart to resize based on the container
   };
 
   return (
-    <Card style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', border: '1px solid #e0e0e0', borderRadius: '8px' }}>
+    <Card style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', border: '1px solid #e0e0e0', borderRadius: '8px', height: '450px' }}>
       <Card.Body>
-        <Card.Title style={{ fontSize: '1.25rem', color: '#343a40', marginBottom: '20px' }}>Vote Distribution</Card.Title>
-        <Pie data={data} options={options} style={{ height: '300px' }} />
+        <Card.Title style={{ fontSize: '1.25rem', color: '#343a40', marginBottom: '20px' }}>Votes Distribution</Card.Title>
+        <div style={{ height: '350px' }}>
+          <Pie data={data} options={options} height={300} /> {/* Adjust height here */}
+        </div>
       </Card.Body>
     </Card>
   );

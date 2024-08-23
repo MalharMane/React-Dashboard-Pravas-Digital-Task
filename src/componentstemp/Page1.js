@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import PieChart from './charts/Piechart';
 import BarChart from './charts/BarChart';
+import LineChart from './charts/LineChart';
 
 
 const Page1 = () => {
@@ -16,7 +17,7 @@ const Page1 = () => {
       
       <Row>
         <Col xs={4}><BarChart /></Col>
-        <Col xs={4}><BarChart /></Col>
+        <Col xs={4}> <LineChart /></Col>
         <Col xs={4}><PieChart /></Col>
       </Row>
        
