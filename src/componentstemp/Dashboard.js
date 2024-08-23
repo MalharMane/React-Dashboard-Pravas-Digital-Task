@@ -92,7 +92,7 @@ const Dashboard = () => {
           <table className="table table-bordered mt-3">
             <thead>
               <tr>
-                <th>#</th>
+                <th>Sr.No.</th>
                 <th>Value</th>
               </tr>
             </thead>
