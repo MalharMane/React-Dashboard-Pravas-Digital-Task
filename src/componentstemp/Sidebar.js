@@ -40,10 +40,10 @@ function Sidebar() {
           <i className="bi bi-house-fill"></i> Dashboard alt+1
         </Nav.Link>
         <Nav.Link as={Link} to="/page1" className="sidebar-link">
-          <i className="bi bi-file-earmark-text"></i> Page 1 alt+2
+          <i className="bi bi-file-earmark-text"></i> Charts alt+2
         </Nav.Link>
         <Nav.Link as={Link} to="/page2" className="sidebar-link">
-          <i className="bi bi-gear-fill"></i> Page 2 Alt+3
+          <i className="bi bi-gear-fill"></i> temp. database alt+3
         </Nav.Link>
       </Nav>
     </div>
