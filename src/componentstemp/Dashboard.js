@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BarChart from './charts/BarChart';
 
+
 const Dashboard = () => {
   const [inputValue, setInputValue] = useState('');
   const [data, setData] = useState(() => {
@@ -74,8 +75,9 @@ const Dashboard = () => {
           value={inputValue}
           onChange={handleInputChange}
           onKeyPress={handleKeyPress}
-          placeholder="Enter a number"
+          placeholder="Feed Reading and Press Enter"
           className="form-control mb-3"
+  style={{ width: '300px' }} // Adjust the width value as needed
         />
 
         <div className="d-grid gap-2">
@@ -89,7 +91,7 @@ const Dashboard = () => {
             Clear All Data
           </button>
           <button onClick={handleTransferToPage2} className="btn btn-success mt-3">
-            Transfer to Page 2
+            Transfer to Temporary Database 
           </button>
         </div>
       </div>
@@ -101,7 +103,7 @@ const Dashboard = () => {
             <thead>
               <tr>
                 <th>Sr.No.</th>
-                <th>Value</th>
+                <th>Readings</th>
               </tr>
             </thead>
             <tbody>

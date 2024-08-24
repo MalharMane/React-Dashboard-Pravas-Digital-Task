@@ -39,7 +39,7 @@ const BarChart = ({ dashboardData }) => {
   return (
     <Card style={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', border: '1px solid #e0e0e0', borderRadius: '8px', height: '450px' }}>
       <Card.Body>
-        <Card.Title style={{ fontSize: '1.25rem', color: '#343a40', marginBottom: '20px' }}>Dashboard Data</Card.Title>
+        <Card.Title style={{ fontSize: '1.25rem', color: '#343a40', marginBottom: '20px' }}>Bar Chart</Card.Title>
         <div style={{ height: '350px' }}>
           <Bar data={data} options={options} height={300} /> {/* Adjust height here */}
         </div>
